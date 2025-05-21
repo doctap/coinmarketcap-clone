@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Geist_Mono, Montserrat } from "next/font/google";
+import "../styles/globals.css";
+import { Header, ThemeProvider } from "@/components";
+import { QueryClientProvider } from "./_components";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  weight: ['400', '700'],
   subsets: ["latin"],
 });
 
@@ -23,11 +26,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${montserrat.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <QueryClientProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <main>{children}</main>
+          </ThemeProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );

@@ -1,0 +1,101 @@
+@theme {
+  /* --spacing: 1px; */
+
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #0e0d0e;
+  --color-light-gray: #f4f4f4;
+  --color-purple: #6d40ff;
+  --color-purple-light: #774CFF;
+  --color-beige: #cfb59c;
+  /* --color-beige-2: #baa38c; */
+  --color-peach: #fff4e1;
+  --color-light-yellow: #fffaf2;
+  --color-yellow: #fffaf2;
+
+  --color-light-green: #d1ffbd;
+  --color-green: #228c22;
+  --color-bright-green: #32c232;
+
+  --color-light-blue: #add8e6;
+  --color-blue: #0049be;
+  --color-blue-2: #003ea0;
+  /* --color-brand-kabosh: #211f20;
+  --color-brand-velikie-luky: #bb9570;
+  --color-brand-velikie-luky-2: #11821e;
+  --color-brand-pereslegino: #75bc1e; */
+  --color-light-red: #e6914b;
+  --color-red: #ff0000;
+
+  --font-montserrat: var(--font-montserrat);
+  --font-geist-mono: var(--font-geist-mono);
+
+  --text-h1: 110px;
+  --text-h1--line-height: 110px;
+  --text-h1--letter-spacing: 3.3px;
+  --text-h1--font-weight: 700;
+
+  --text-h1-mobile: 46px;
+  --text-h1-mobile--line-height: 48px;
+  --text-h1-mobile--letter-spacing: 3.3px;
+  --text-h1-mobile--font-weight: 700;
+
+  --text-h2: 48px;
+  --text-h2--line-height: 50px;
+  --text-h2--font-weight: 700;
+
+  --text-h2-mobile: 36px;
+  --text-h2-mobile--line-height: 38px;
+  --text-h2-mobile--font-weight: 700;
+
+  --text-h3: 60px;
+  --text-h3--line-height: 60px;
+  --text-h3--font-weight: 400;
+
+  --text-h3-mobile: 52px;
+  --text-h3-mobile--line-height: 52px;
+  --text-h3-mobile--font-weight: 400;
+
+  --text-h4: 32px;
+  --text-h4--line-height: 42px;
+  --text-h4--letter-spacing: 0.96px;
+  --text-h4--font-weight: 700;
+
+  --text-20-caption-bold: 20px;
+  --text-20-caption-bold--line-height: 28px;
+  --text-20-caption-bold--letter-spacing: 0.6px;
+  --text-20-caption-bold--font-weight: 700;
+
+  --text-20-caption: 20px;
+  --text-20-caption--line-height: 30px;
+  --text-20-caption--letter-spacing: 0.6px;
+  --text-20-caption--font-weight: 400;
+
+  --text-16-caption: 16px;
+  --text-16-caption--line-height: 24px;
+  --text-16-caption--letter-spacing: 1px;
+  --text-16-caption--font-weight: 500;
+
+  --text-18: 18px;
+  --text-18--line-height: 24px;
+  --text-18--font-weight: 400;
+
+  --text-16: 16px;
+  --text-16--line-height: 22px;
+
+  --text-14: 14px;
+  --text-14--line-height: 18px;
+  --text-14--font-weight: 400;
+
+  --text-26-vintage: 26px;
+  --text-26-vintage--line-height: 30px;
+  --text-26-vintage--font-weight: 400;
+
+  --text-22-vintage: 22px;
+  --text-22-vintage--line-height: 22px;
+  --text-22-vintage--font-weight: 400;
+
+  --text-20-vintage: 20px;
+  --text-20-vintage--line-height: 24px;
+  --text-20-vintage--font-weight: 400;
+}
