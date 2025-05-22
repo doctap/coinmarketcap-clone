@@ -39,3 +39,8 @@ export interface CoinProps {
   currentPrice: number;
   priceChangePercentageLastDay: number;
 }
+
+export type FetchCoinsQuery = {
+  limit: number
+  vsCurrency: 'usd'
+}
