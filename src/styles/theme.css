@@ -27,6 +27,8 @@
   --color-light-red: #e6914b;
   --color-red: #ff0000;
 
+  --color-overlay: rgba(0, 0, 0, .5);
+
   --font-montserrat: var(--font-montserrat);
   --font-geist-mono: var(--font-geist-mono);
 

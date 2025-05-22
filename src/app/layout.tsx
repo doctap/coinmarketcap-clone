@@ -39,9 +39,10 @@ export default function RootLayout({
           >
             <Header />
             <main>{children}</main>
+            <div id='modal-portal' />
           </ThemeProvider>
         </QueryClientProvider>
       </body>
     </html>
-  );
+  )
 }
