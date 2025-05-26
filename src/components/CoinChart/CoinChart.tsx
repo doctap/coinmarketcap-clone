@@ -9,7 +9,7 @@ import {
   ChartTooltipContent,
 } from "@/shared"
 import Skeleton from "../Skeleton/Skeleton"
-import { CoinPricesProps } from "@/entities/crypto-prices"
+import { CoinPricesProps } from "@/entities/coins"
 
 const chartConfig = {
   desktop: {

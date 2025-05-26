@@ -1,5 +1,5 @@
 import { COIN_ICON } from "@/components/CurrencyCards/data"
-import { CoinProps } from "@/entities/crypto-currencies"
+import { CoinProps } from "@/entities/coins"
 import { ExtraProps } from "@/types"
 import clsx from "clsx"
 import { IoMdArrowDropdown } from "react-icons/io";

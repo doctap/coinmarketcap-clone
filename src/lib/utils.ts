@@ -1,4 +1,4 @@
-import { CoinPrices, CoinPricesProps, SplittedCoinPricesProps } from "@/entities/crypto-prices";
+import { CoinPrices, CoinPricesProps, SplittedCoinPricesProps } from "@/entities/coins";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 

@@ -1,2 +1,2 @@
-export { useCryptoCurrencyQuery } from './crypto-currencies/useCryptoCurrenciesQuery'
-export { useCryptoPricesQuery } from './crypto-prices/useCryptoPricesQuery'
+export { useCoinsQuery } from "./coins/useCoinsQuery"
+export { useCoinPricesQuery } from "./coin-prices/useCoinPricesQuery"

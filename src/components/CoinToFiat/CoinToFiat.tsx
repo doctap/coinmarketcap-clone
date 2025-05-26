@@ -6,7 +6,7 @@ import { RiExpandUpDownLine } from "react-icons/ri"
 import CoinChartSearch from "../CoinChartSearch/CoinChartSearch"
 import { CgDollar } from "react-icons/cg"
 import { memo, useCallback, useState } from "react"
-import { CoinProps } from "@/entities/crypto-currencies"
+import { CoinProps } from "@/entities/coins"
 import clsx from "clsx"
 
 const CoinToFiat = memo(function CoinToFiat({

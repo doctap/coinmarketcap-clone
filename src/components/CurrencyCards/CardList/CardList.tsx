@@ -2,13 +2,13 @@
 
 import Card from "../Card/Card"
 import { Skeleton } from "@/components"
-import { useCryptoCurrencyQuery } from "@/hooks"
+import { useCoinsQuery } from "@/hooks"
 
 const coinQueryLimit = 3
 const spacer = Array(coinQueryLimit).fill(null)
 
 export default function CardList() {
-  const { data, isLoading } = useCryptoCurrencyQuery({ limit: coinQueryLimit, vsCurrency: 'usd' })
+  const { data, isLoading } = useCoinsQuery({ limit: coinQueryLimit, vsCurrency: 'usd' })
 
   if (isLoading) {
     return (

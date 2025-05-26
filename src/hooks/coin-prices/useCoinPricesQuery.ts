@@ -1,13 +1,13 @@
 import {
   FetchCoinPricesQuery,
   fetchCoinPrices,
-} from "@/entities/crypto-prices";
+} from "@/entities/coins";
 import { normalizePrices, splitToPeriods } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 
-export const useCryptoPricesQuery = (params: FetchCoinPricesQuery) =>
+export const useCoinPricesQuery = (params: FetchCoinPricesQuery) =>
   useQuery({
-    queryKey: ["crypto-prices", params],
+    queryKey: ["coin-prices", params],
     queryFn: async () => {
       const { prices } = await fetchCoinPrices(params)
       const normalizedPrices = normalizePrices(prices);

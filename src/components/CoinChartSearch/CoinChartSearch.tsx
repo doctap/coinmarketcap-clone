@@ -1,4 +1,4 @@
-import { CoinProps } from "@/entities/crypto-currencies"
+import { CoinProps } from "@/entities/coins"
 import NextImage from "next/image"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "../Command/Command"
 import { memo, useCallback } from "react"

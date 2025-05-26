@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, CardContent, CardHeader } from "../Card/Card"
-import { useCryptoCurrencyQuery, useCryptoPricesQuery } from "@/hooks"
+import { useCoinsQuery, useCoinPricesQuery } from "@/hooks"
 import { useCallback, useMemo, useState } from "react"
 import PeriodToggle from "../PeriodToggle/PeriodToggle"
 import CoinToFiat from "../CoinToFiat/CoinToFiat"
@@ -11,8 +11,8 @@ import { Periods } from "@/types"
 const CoinChartBox = () => {
   const [selectedCoinId, setSelectedCoin] = useState('bitcoin')
   const [selectedPeriod, setSelectedPeriod] = useState<Periods>(7)
-  const { data: dataCoins, isLoading: isCoinsLoading } = useCryptoCurrencyQuery({ limit: 50, vsCurrency: 'usd' })
-  const { data: dataPrices, isLoading: isPricesLoading } = useCryptoPricesQuery({ coinId: selectedCoinId, vsCurrency: 'usd', dayPeriod: 30 })
+  const { data: dataCoins, isLoading: isCoinsLoading } = useCoinsQuery({ limit: 50, vsCurrency: 'usd' })
+  const { data: dataPrices, isLoading: isPricesLoading } = useCoinPricesQuery({ coinId: selectedCoinId, vsCurrency: 'usd', dayPeriod: 30 })
 
   const handleCoinSelect = useCallback((value: string) => {
     setSelectedCoin(value)
