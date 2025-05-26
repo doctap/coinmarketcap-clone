@@ -15,7 +15,7 @@ export const normalizePrices = (
 export const splitToPeriods = (
   splittedPrices: CoinPricesProps
 ): SplittedCoinPricesProps => ({
-  '7': splittedPrices.slice(0, 7),
-  '15': splittedPrices.slice(0, 15),
-  '30': splittedPrices,
+  '7': splittedPrices.slice(-7),
+  '15': splittedPrices.slice(-15),
+  '30': splittedPrices.slice(-30),
 })

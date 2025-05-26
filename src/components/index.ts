@@ -12,4 +12,5 @@ export {default as CoinChartBox} from './CoinChartBox/CoinChartBox'
 export {default as PeriodToggle} from './PeriodToggle/PeriodToggle'
 export {default as CoinToFiat} from './CoinToFiat/CoinToFiat'
 
+export * from './Card/Card'
 export * from './DropdownMenu/DropdownMenu'

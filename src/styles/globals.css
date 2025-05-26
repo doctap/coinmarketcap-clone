@@ -6,10 +6,11 @@
 
 @layer base {
   * {
+    @apply border-border outline-ring/50;
+
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    outline: none !important;
   }
 
   html {
@@ -26,6 +27,8 @@
   }
 
   body {
+    @apply bg-background font-montserrat;
+
     width: 100%;
     min-width: 375px;
     height: auto;
@@ -34,7 +37,6 @@
     line-height: 1.5;
     font-style: normal;
     color: var(--color-black);
-    background: var(--color-white);
     scroll-behavior: smooth;
     overflow-x: hidden;
     overflow-y: auto;
@@ -151,10 +153,9 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+
   }
 
   body {
-    @apply bg-background text-foreground;
   }
 }

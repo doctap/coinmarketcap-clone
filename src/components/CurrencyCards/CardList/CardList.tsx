@@ -1,6 +1,6 @@
 'use client'
 
-import Card from "../Card/Card"
+import CurrencyCard from "../Card/Card"
 import { Skeleton } from "@/components"
 import { useCoinsQuery } from "@/hooks"
 
@@ -23,7 +23,7 @@ export default function CardList() {
       <h2 className='sr-only'>Main crypto currencies</h2>
       <ul className='grid grid-cols-3 gap-24'>
         {data
-          ? data.map(coin => <li key={coin.id}><Card {...coin} /></li>)
+          ? data.map(coin => <li key={coin.id}><CurrencyCard {...coin} /></li>)
           : <li>Empty List</li>}
       </ul>
     </section>

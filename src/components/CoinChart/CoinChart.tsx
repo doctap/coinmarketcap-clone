@@ -34,7 +34,7 @@ export function CoinChart({
       <AreaChart
         accessibilityLayer
         data={prices}
-        margin={{ left: -15 }}
+        margin={{ left: -5 }}
       >
         <YAxis
           type="number"

@@ -4,8 +4,9 @@ import { ExtraProps } from "@/types"
 import clsx from "clsx"
 import { IoMdArrowDropdown } from "react-icons/io";
 import { CgDollar } from "react-icons/cg";
+import { Card, CardContent, CardDescription, CardFooter, CardParagraph } from "@/components";
 
-export default function Card({
+export default function CurrencyCard({
   id,
   name,
   currentPrice,
@@ -13,28 +14,28 @@ export default function Card({
   className
 }: CoinProps & ExtraProps) {
   return (
-    <article className={clsx('flex px-16 py-12 gap-24 justify-between bg-card rounded-md', className)}>
-      <div className='flex gap-24 items-center'>
+    <Card className={clsx('flex px-16 py-12 gap-24 justify-between bg-card rounded-md border-0', className)}>
+      <CardContent className='flex gap-24 items-center p-0'>
         <div className='col-span-1 row-span-2'>
           {COIN_ICON[id]}
         </div>
 
         <div>
-          <h3 className='text-14'>{name}</h3>
-          <p className='text-20-caption-bold flex items-center'>
+          <CardDescription className='!text-14'>{name}</CardDescription>
+          <CardParagraph className='!text-20-caption-bold flex items-center'>
             <span className='overflow-hidden w-[0.7em]'><CgDollar className='-translate-x-5' /></span>
             <span>{currentPrice}</span>
-          </p>
+          </CardParagraph>
         </div>
-      </div>
+      </CardContent>
 
-      <div className='self-end text-14 flex gap-3'>
+      <CardFooter className='self-end text-14 flex gap-3'>
         {priceChangePercentageLastDay >= 0
           ? <IoMdArrowDropdown size={18} className='text-bright-green rotate-180' />
           : <IoMdArrowDropdown size={18} className='text-red' />
         }
         {`${priceChangePercentageLastDay.toFixed(2)} %`}
-      </div>
-    </article>
+      </CardFooter>
+    </Card>
   )
 }

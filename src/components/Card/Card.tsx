@@ -33,7 +33,7 @@ const CardTitle = forwardRef<
   HTMLHeadingElement,
   HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
-  <h2
+  <h3
     ref={ref}
     className={cn(
       "text-2xl font-semibold leading-none tracking-tight",
@@ -64,6 +64,14 @@ const CardContent = forwardRef<
 ))
 CardContent.displayName = "CardContent"
 
+const CardParagraph = forwardRef<
+  HTMLParagraphElement,
+  HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <p ref={ref} className={cn("text-base text-card-foreground", className)} {...props} />
+))
+CardParagraph.displayName = "CardParagraph"
+
 const CardFooter = forwardRef<
   HTMLElement,
   HTMLAttributes<HTMLElement>
@@ -76,4 +84,12 @@ const CardFooter = forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardParagraph
+}
