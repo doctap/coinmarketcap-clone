@@ -7,9 +7,9 @@ export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 export const normalizePrices = (
   prices: CoinPrices["prices"]
 ): CoinPricesProps =>
-  prices.map(([date, rate]) => ({
+  prices.map(([date, price]) => ({
     date: new Date(date).toDateString(),
-    rate: rate.toFixed(2),
+    price: price.toFixed(2),
   }));
 
 export const splitToPeriods = (

@@ -6,7 +6,7 @@ export type CoinPrices = {
   total_volumes: number[][];
 }
 
-export type CoinPricesProps = {date: string, rate: string}[]
+export type CoinPricesProps = {date: string, price: string}[]
 
 export type SplittedCoinPricesProps = Record<7 | 15 | 30, CoinPricesProps>
 

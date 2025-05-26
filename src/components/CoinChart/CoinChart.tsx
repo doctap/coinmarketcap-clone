@@ -14,11 +14,7 @@ import { CoinPricesProps } from "@/entities/crypto-prices"
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "hsl(var(--chart-1))",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "hsl(var(--chart-2))",
+    color: "var(--chart-1)",
   },
 } satisfies ChartConfig
 
@@ -49,11 +45,11 @@ export function CoinChart({
           tickFormatter={(value) => value.slice(4, 10)}
         />
         <ChartTooltip
-          cursor={false}
-          content={<ChartTooltipContent indicator="dot" />}
+          cursor
+          content={<ChartTooltipContent className='p-7' indicator="dot" />}
         />
         <Area
-          dataKey='rate'
+          dataKey='price'
           type="monotone"
           fill="var(--color-desktop)"
           fillOpacity={0.4}
