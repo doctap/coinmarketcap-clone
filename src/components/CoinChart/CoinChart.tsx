@@ -1,0 +1,66 @@
+"use client"
+
+import { Area, AreaChart, XAxis, YAxis } from "recharts"
+
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/shared"
+import Skeleton from "../Skeleton/Skeleton"
+import { CoinPricesProps } from "@/entities/crypto-prices"
+
+const chartConfig = {
+  desktop: {
+    label: "Desktop",
+    color: "hsl(var(--chart-1))",
+  },
+  mobile: {
+    label: "Mobile",
+    color: "hsl(var(--chart-2))",
+  },
+} satisfies ChartConfig
+
+export function CoinChart({
+  prices,
+  isLoading
+}: { prices?: CoinPricesProps, isLoading: boolean }) {
+
+  if (isLoading) {
+    return (
+      <Skeleton className='h-250 w-full' />
+    )
+  }
+
+  return (
+    <ChartContainer className='h-250 w-full' config={chartConfig}>
+      <AreaChart
+        accessibilityLayer
+        data={prices}
+        margin={{ left: -15 }}
+      >
+        <YAxis
+          type="number"
+        />
+        <XAxis
+          dataKey='date'
+          tickMargin={8}
+          tickFormatter={(value) => value.slice(4, 10)}
+        />
+        <ChartTooltip
+          cursor={false}
+          content={<ChartTooltipContent indicator="dot" />}
+        />
+        <Area
+          dataKey='rate'
+          type="monotone"
+          fill="var(--color-desktop)"
+          fillOpacity={0.4}
+          stroke="var(--color-desktop)"
+          stackId="a"
+        />
+      </AreaChart>
+    </ChartContainer>
+  )
+}

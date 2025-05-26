@@ -1,3 +1,5 @@
+import { FiatCurrency } from "@/types";
+
 export type Coin = {
   id: string;
   symbol: string;
@@ -42,5 +44,5 @@ export interface CoinProps {
 
 export type FetchCoinsQuery = {
   limit: number
-  vsCurrency: 'usd'
+  vsCurrency: FiatCurrency
 }

@@ -3,12 +3,7 @@
 import { useEffect, useRef, ReactNode, useState } from "react"
 import { createPortal } from "react-dom"
 
-type ClientPortalInterface = {
-  children: ReactNode
-  selector: string
-}
-
-const ClientPortal = ({ children, selector }: ClientPortalInterface) => {
+const ClientPortal = ({ children, selector }: { children: ReactNode; selector: string }) => {
   const ref = useRef<Element | null>(null)
   const [mounted, setMounted] = useState(false);
 
