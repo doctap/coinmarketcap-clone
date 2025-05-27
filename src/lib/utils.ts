@@ -1,4 +1,8 @@
-import { CoinPrices, CoinPricesProps, SplittedCoinPricesProps } from "@/entities/coins";
+import {
+  CoinPrices,
+  CoinPricesProps,
+  SplittedCoinPricesProps,
+} from "@/entities/coins";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -15,7 +19,21 @@ export const normalizePrices = (
 export const splitToPeriods = (
   splittedPrices: CoinPricesProps
 ): SplittedCoinPricesProps => ({
-  '7': splittedPrices.slice(-7),
-  '15': splittedPrices.slice(-15),
-  '30': splittedPrices.slice(-30),
-})
+  "7": splittedPrices.slice(-7),
+  "15": splittedPrices.slice(-15),
+  "30": splittedPrices.slice(-30),
+});
+
+export const intFormatter = ({
+  num,
+  notation,
+  fixed,
+}: {
+  num: number;
+  notation?: "compact" | "standard";
+  fixed?: number;
+}) =>
+  new Intl.NumberFormat("en-US", {
+    notation,
+    maximumFractionDigits: fixed,
+  }).format(num);

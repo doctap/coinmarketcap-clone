@@ -1,13 +1,15 @@
-import { CardList, CoinChartBox } from "@/components"
+import { CardList, CoinChartBox, GlobalMarketOverview } from "@/components"
 
 export default function Home() {
-
   return (
-    <div className='grid grid-cols-12'>
+    <div className='grid grid-cols-[2fr_1.1fr] gap-24 px-36 pt-48'>
       <h1 className="sr-only">Crypto coin market</h1>
-      <div className='px-36 pt-48 col-span-8 gap-24 flex flex-col'>
-        <CardList />
+      <div>
+        <CardList className='mb-24' />
         <CoinChartBox />
+      </div>
+      <div>
+        <GlobalMarketOverview className='h-fit' />
       </div>
     </div>
   );

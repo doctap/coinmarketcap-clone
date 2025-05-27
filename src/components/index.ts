@@ -6,6 +6,7 @@ export * from './CoinChartSearch/CoinChartSearch'
 export * from './CoinsModal/CoinsModal'
 export * from './CurrencyCards/CardList/CardList'
 export * from './CurrencyCards'
+export * from './GlobalMarketOverview/GlobalMarketOverview'
 
 export * from './CoinChartBox/CoinChartBox'
 export * from './PeriodToggle/PeriodToggle'

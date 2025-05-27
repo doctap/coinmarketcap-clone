@@ -8,6 +8,7 @@ import { CgDollar } from "react-icons/cg"
 import { memo, useCallback, useState } from "react"
 import { CoinProps } from "@/entities/coins"
 import clsx from "clsx"
+import { intFormatter } from "@/lib/utils"
 
 export const CoinToFiat = memo(function CoinToFiat({
   isLoading,
@@ -53,7 +54,11 @@ export const CoinToFiat = memo(function CoinToFiat({
         <div className='flex gap-16 mt-16'>
           <div className='flex items-center text-h4'>
             <CgDollar />
-            {selectedCoinData.currentPrice}
+            {intFormatter({
+              num: selectedCoinData.currentPrice,
+              notation: 'standard',
+              fixed: 2,
+            })}
           </div>
           <div className={clsx(
             'mt-auto pb-3',

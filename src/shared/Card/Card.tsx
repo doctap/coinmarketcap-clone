@@ -9,7 +9,7 @@ const Card = forwardRef<
   <article
     ref={ref}
     className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      "rounded-lg bg-card text-card-foreground shadow-sm p-24 min-w-fit",
       className
     )}
     {...props}
@@ -60,7 +60,7 @@ const CardContent = forwardRef<
   HTMLDivElement,
   HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  <div ref={ref} className={cn(className)} {...props} />
 ))
 CardContent.displayName = "CardContent"
 

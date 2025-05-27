@@ -29,13 +29,13 @@ type GlobalMarket = {
 };
 
 export type CryptoMarketApiResponse = {
-  date: GlobalMarket;
+  data: GlobalMarket;
 };
 
 export interface GlobalMarketProps {
-  totalMarketCap: number;
-  totalVolume: number;
-  activeCryptos: number;
+  totalMarketCap: string;
+  totalVolume: string;
+  activeCryptos: string;
   bitcoinDominance: number;
   marketCapChange: number;
 }

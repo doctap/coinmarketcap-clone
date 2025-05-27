@@ -6,9 +6,9 @@ import { useCallback, useMemo, useState } from "react"
 import { PeriodToggle } from "@/components"
 import { CoinToFiat } from "@/components"
 import { CoinChart } from "@/components"
-import { Periods } from "@/types"
+import { ExtraProps, Periods } from "@/types"
 
-export const CoinChartBox = () => {
+export const CoinChartBox = ({ className }: ExtraProps) => {
   const [selectedCoinId, setSelectedCoin] = useState('bitcoin')
   const [selectedPeriod, setSelectedPeriod] = useState<Periods>(7)
   const { data: dataCoins, isLoading: isCoinsLoading } = useCoinsQuery({ limit: 50, vsCurrency: 'usd' })
@@ -25,10 +25,10 @@ export const CoinChartBox = () => {
   const coins = useMemo(() => dataCoins, [dataCoins])
 
   return (
-    <section>
+    <section className={className}>
       <h2 className='sr-only'>Crypto currency chart</h2>
 
-      <Card className='h-full border-0 p-24'>
+      <Card className='h-full'>
         <CardHeader className='flex-row justify-between mb-24'>
           <CoinToFiat
             isLoading={isCoinsLoading}
