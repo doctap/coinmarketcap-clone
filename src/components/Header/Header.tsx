@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import { Logo } from "@/components";
+import { Logo } from "@/shared";
 import {ThemeToggle} from "@/components";
 import { Input } from "@/shared";
 
