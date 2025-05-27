@@ -1,10 +1,10 @@
 'use client'
 
-import ClientPortal from '../ClientPortal/ClientPortal'
-import Modal from '../Modal/Modal'
+import { ClientPortal } from '../ClientPortal/ClientPortal'
+import { Modal } from '@/shared'
 import { useCallback, useState } from 'react'
 
-const CoinsModal = () => {
+export const CoinsModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleModalClose = useCallback(() => setIsModalOpen(prev => !prev), [])
@@ -19,5 +19,3 @@ const CoinsModal = () => {
     </ClientPortal>
   )
 }
-
-export default CoinsModal

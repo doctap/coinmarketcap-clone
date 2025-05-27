@@ -8,7 +8,7 @@ interface ButtonProps extends NativeProps {
   size: 'icon'
 }
 
-export default function Button({ children, className, ...otherProps }: ButtonProps) {
+export function Button({ children, className, ...otherProps }: ButtonProps) {
 
   return (
     <button

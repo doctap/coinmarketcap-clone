@@ -1,15 +1,15 @@
 'use client'
 
-import { Popover, PopoverTrigger, PopoverContent } from "../Popover/Popover"
-import Skeleton from "../Skeleton/Skeleton"
+import { Popover, PopoverTrigger, PopoverContent } from "@/shared"
+import { Skeleton } from "@/shared"
 import { RiExpandUpDownLine } from "react-icons/ri"
-import CoinChartSearch from "../CoinChartSearch/CoinChartSearch"
+import { CoinChartSearch } from "@/components"
 import { CgDollar } from "react-icons/cg"
 import { memo, useCallback, useState } from "react"
 import { CoinProps } from "@/entities/coins"
 import clsx from "clsx"
 
-const CoinToFiat = memo(function CoinToFiat({
+export const CoinToFiat = memo(function CoinToFiat({
   isLoading,
   selectedCoinId,
   onChange,
@@ -66,5 +66,3 @@ const CoinToFiat = memo(function CoinToFiat({
     </article>
   )
 })
-
-export default CoinToFiat

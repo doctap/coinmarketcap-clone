@@ -1,13 +1,13 @@
 'use client'
 
-import CurrencyCard from "../Card/Card"
-import { Skeleton } from "@/components"
+import { CurrencyCard } from "@/components"
+import { Skeleton } from "@/shared"
 import { useCoinsQuery } from "@/hooks"
 
 const coinQueryLimit = 3
 const spacer = Array(coinQueryLimit).fill(null)
 
-export default function CardList() {
+export function CardList() {
   const { data, isLoading } = useCoinsQuery({ limit: coinQueryLimit, vsCurrency: 'usd' })
 
   if (isLoading) {

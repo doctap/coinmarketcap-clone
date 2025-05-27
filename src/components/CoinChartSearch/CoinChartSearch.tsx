@@ -3,7 +3,7 @@ import NextImage from "next/image"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "../Command/Command"
 import { memo, useCallback } from "react"
 
-const CoinChartSearch = memo(function CoinChartSearch({
+export const CoinChartSearch = memo(function CoinChartSearch({
   coins,
   onChange,
   value
@@ -43,5 +43,3 @@ const CoinChartSearch = memo(function CoinChartSearch({
     </Command>
   )
 })
-
-export default CoinChartSearch

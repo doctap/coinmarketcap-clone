@@ -8,7 +8,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/shared"
-import Skeleton from "../Skeleton/Skeleton"
+import { Skeleton } from "@/shared"
 import { CoinPricesProps } from "@/entities/coins"
 
 const chartConfig = {

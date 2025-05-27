@@ -1,9 +1,9 @@
 import { Search } from "lucide-react";
-import Logo from "../Logo/Logo";
-import ThemeToggle from "../ThemeToggle/ThemeToggle";
-import Input from "../Input/Input";
+import { Logo } from "@/components";
+import {ThemeToggle} from "@/components";
+import { Input } from "@/shared";
 
-export default function Header() {
+export function Header() {
   return (
     <nav className="flex justify-between px-30 pt-20">
       <Logo />

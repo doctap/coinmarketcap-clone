@@ -1,14 +1,14 @@
 'use client'
 
-import { Card, CardContent, CardHeader } from "../Card/Card"
+import { Card, CardContent, CardHeader } from "@/shared"
 import { useCoinsQuery, useCoinPricesQuery } from "@/hooks"
 import { useCallback, useMemo, useState } from "react"
-import PeriodToggle from "../PeriodToggle/PeriodToggle"
-import CoinToFiat from "../CoinToFiat/CoinToFiat"
-import { CoinChart } from "../CoinChart/CoinChart"
+import { PeriodToggle } from "@/components"
+import { CoinToFiat } from "@/components"
+import { CoinChart } from "@/components"
 import { Periods } from "@/types"
 
-const CoinChartBox = () => {
+export const CoinChartBox = () => {
   const [selectedCoinId, setSelectedCoin] = useState('bitcoin')
   const [selectedPeriod, setSelectedPeriod] = useState<Periods>(7)
   const { data: dataCoins, isLoading: isCoinsLoading } = useCoinsQuery({ limit: 50, vsCurrency: 'usd' })
@@ -50,5 +50,3 @@ const CoinChartBox = () => {
     </section>
   )
 }
-
-export default CoinChartBox

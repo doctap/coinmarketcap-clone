@@ -2,7 +2,7 @@ import { monthPeriods } from "@/enums"
 import { ToggleGroup, ToggleGroupItem } from "@/shared"
 import { memo } from "react"
 
-const PeriodToggle = memo(function PeriodToggle({
+export const PeriodToggle = memo(function PeriodToggle({
   value,
   onChange
  }: { value: string, onChange: (value: string) => void }) {
@@ -25,5 +25,3 @@ const PeriodToggle = memo(function PeriodToggle({
     </ToggleGroup>
   )
 })
-
-export default PeriodToggle

@@ -4,9 +4,9 @@ import { ExtraProps } from "@/types"
 import clsx from "clsx"
 import { IoMdArrowDropdown } from "react-icons/io";
 import { CgDollar } from "react-icons/cg";
-import { Card, CardContent, CardDescription, CardFooter, CardParagraph } from "@/components";
+import { Card, CardContent, CardDescription, CardFooter, CardParagraph } from "@/shared";
 
-export default function CurrencyCard({
+export function CurrencyCard({
   id,
   name,
   currentPrice,

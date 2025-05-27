@@ -1,9 +1,9 @@
-import { Coin, CoinProps, FetchCoinsQuery, CoinPrices, FetchCoinPricesQuery } from "../types"
+import { Coin, FetchCoinsQuery, CoinPrices, FetchCoinPricesQuery } from "../types"
 
 export const fetchCoins = async ({ 
   vsCurrency,
   limit
-}: FetchCoinsQuery): Promise<CoinProps[]> => {
+}: FetchCoinsQuery): Promise<Coin[]> => {
   const response = await fetch(
     `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${vsCurrency}&per_page=${limit}`
   )
@@ -12,16 +12,7 @@ export const fetchCoins = async ({
     // TODO: do some things to handle an error
   }
 
-  const coins = await response.json() as Coin[]
-
-  return coins.map<CoinProps>(coin => ({
-     id: coin.id,
-     symbol: coin.symbol,
-     image: coin.image,
-     name: coin.name,
-     currentPrice: coin.current_price,
-     priceChangePercentageLastDay: coin.market_cap_change_percentage_24h
-  }))
+  return await response.json() as Coin[]
 }
 
 export const fetchCoinPrices = async ({

@@ -3,9 +3,9 @@
 import { createContext, PropsWithChildren, useContext, MouseEvent, useRef, useEffect } from 'react';
 import { IoClose } from 'react-icons/io5';
 
-const ModalContext = createContext<{ onClose: () => void; ariaLabelledby: string } | null>(null)
+export const ModalContext = createContext<{ onClose: () => void; ariaLabelledby: string } | null>(null)
 
-const Modal = ({
+export const Modal = ({
   children,
   isOpen,
   onClose,
@@ -89,5 +89,3 @@ Modal.displayName = 'Modal'
 Modal.Header = ModalHeader
 Modal.Body = ModalBody
 Modal.Footer = ModalFooter
-
-export default Modal
