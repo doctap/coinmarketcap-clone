@@ -5,12 +5,12 @@ import { Input } from "@/shared";
 
 export function Header() {
   return (
-    <nav className="flex justify-between px-30 pt-20">
+    <nav className="flex justify-between px-36 pt-20">
       <Logo />
-      <div className="flex gap-24">
-        <div className="relative">
-          <Search className="h-20 w-20 top-8 left-5 absolute text-purple-light" />
-          <Input placeholder='Type coin' type="search" className="w-300 pl-30" />
+      <div className="flex gap-24 items-center">
+        <div className="relative h-fit">
+          <Search className="h-20 w-20 top-7 left-5 absolute text-purple-light" />
+          <Input placeholder='Type coin' type="search" className="w-300 py-15 pl-30" />
         </div>
 
         <ThemeToggle />

@@ -10,17 +10,17 @@ const common = {
 
 export const COIN_ICON: Record<string, React.JSX.Element> = {
   bitcoin: (
-    <div className={clsx('bg-light-yellow', common.className)}>
-      <BsCurrencyBitcoin size={common.size} className='text-beige' />
+    <div className={clsx('bg-yellow-100', common.className)}>
+      <BsCurrencyBitcoin size={common.size} className='text-yellow' />
     </div>
   ),
   ethereum: (
-    <div className={clsx('bg-light-blue', common.className)}>
+    <div className={clsx('bg-blue-100', common.className)}>
       <SiEthereum size={common.size} className='text-blue' />
     </div>
   ),
   tether: (
-    <div className={clsx('bg-light-green', common.className)}>
+    <div className={clsx('bg-green-100', common.className)}>
       <SiTether size={common.size} className='text-green' />
     </div>
   )

@@ -62,7 +62,7 @@ export const CoinToFiat = memo(function CoinToFiat({
           </div>
           <div className={clsx(
             'mt-auto pb-3',
-            selectedCoinData.priceChangePercentageLastDay < 0 ? 'text-red' : 'text-bright-green'
+            selectedCoinData.priceChangePercentageLastDay < 0 ? 'text-red' : 'text-green-300',
           )}>
             {selectedCoinData.priceChangePercentageLastDay}
           </div>

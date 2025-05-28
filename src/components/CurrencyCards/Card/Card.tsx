@@ -38,7 +38,7 @@ export function CurrencyCard({
 
       <CardFooter className='self-end text-14 flex gap-3 text-nowrap'>
         {priceChangePercentageLastDay >= 0
-          ? <IoMdArrowDropdown size={18} className='text-bright-green rotate-180' />
+          ? <IoMdArrowDropdown size={18} className='text-green-300 rotate-180' />
           : <IoMdArrowDropdown size={18} className='text-red' />
         }
         {`${priceChangePercentageLastDay.toFixed(2)} %`}

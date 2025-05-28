@@ -12,7 +12,7 @@ export function Button({ children, className, ...otherProps }: ButtonProps) {
 
   return (
     <button
-      className={clsx(className)}
+      className={clsx('text-btn-foreground', className)}
       {...otherProps}
     >
       {children}
