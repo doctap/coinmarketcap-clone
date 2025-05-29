@@ -1,3 +1,5 @@
 export { useCoinsQuery } from "./coins/useCoinsQuery"
 export { useCoinPricesQuery } from "./coin-prices/useCoinPricesQuery"
 export { useGlobalMarketQuery } from "./global-market/useGlobalMarketQuery"
+export { useCategoriesQuery } from "./categories/useCategoriesQuery"
+export { useExchangeQuery } from "./exchange/useExchangeQuery"
