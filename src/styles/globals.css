@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import './theme.css';
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -97,7 +96,6 @@
   --color-blue-100: #add8e6;
   --color-blue: #0049be;
   --color-red: #ff0000;
-
 
   /* Fonts */
   --font-montserrat: var(--font-montserrat);
