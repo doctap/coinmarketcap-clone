@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider as ReactQueryClientProvider } from "@t
 
 const queryClient = new QueryClient()
 
-export default function QueryClientProvider({ children }: PropsWithChildren) {
+export function QueryClientProvider({ children }: PropsWithChildren) {
 
   return (
     <ReactQueryClientProvider client={queryClient}>

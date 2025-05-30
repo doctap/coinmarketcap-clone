@@ -1,4 +1,3 @@
-export * from './ThemeProvider/ThemeProvider'
 export * from './ThemeToggle/ThemeToggle'
 export * from './Header/Header'
 export * from './CoinChartSearch/CoinChartSearch'

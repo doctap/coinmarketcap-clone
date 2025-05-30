@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Montserrat } from "next/font/google";
 import "../styles/globals.css";
-import { Header, ThemeProvider } from "@/components";
-import { QueryClientProvider } from "./_components";
+import { Header } from "@/components";
+import { QueryClientProvider, ThemeProvider } from "./_components";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
