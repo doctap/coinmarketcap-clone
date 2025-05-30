@@ -13,7 +13,9 @@ export const useCoinsQuery = (params: FetchCoinsQuery) => (
            image: coin.image,
            name: coin.name,
            currentPrice: coin.current_price,
-           priceChangePercentageLastDay: coin.market_cap_change_percentage_24h
+           priceChangePercentageLastDay: coin.market_cap_change_percentage_24h,
+           marketRank: coin.market_cap_rank,
+           totalVolume: coin.total_volume,
         }))
     },
   })

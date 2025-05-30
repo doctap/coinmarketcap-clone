@@ -17,3 +17,6 @@ export * from './DropdownMenu/DropdownMenu'
 export * from './CoinChart/CoinChart'
 export * from './ClientPortal/ClientPortal'
 export * from './MarketHighlights/MarketHighlights'
+
+export * from './TopCoinsTable/TopCoinsTable'
+export * from './Cases/Cases'

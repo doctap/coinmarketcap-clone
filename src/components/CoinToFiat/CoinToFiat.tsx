@@ -1,6 +1,6 @@
 'use client'
 
-import { Popover, PopoverTrigger, PopoverContent } from "@/shared"
+import { Popover, PopoverTrigger, PopoverContent, UpDownIndicator } from "@/shared"
 import { Skeleton } from "@/shared"
 import { RiExpandUpDownLine } from "react-icons/ri"
 import { CoinChartSearch } from "@/components"
@@ -60,12 +60,11 @@ export const CoinToFiat = memo(function CoinToFiat({
               fixed: 2,
             })}
           </div>
-          <div className={clsx(
-            'mt-auto pb-3',
-            selectedCoinData.priceChangePercentageLastDay < 0 ? 'text-red' : 'text-green-300',
-          )}>
-            {selectedCoinData.priceChangePercentageLastDay}
-          </div>
+
+          <UpDownIndicator 
+            isUp={selectedCoinData.priceChangePercentageLastDay < 0}
+            value={String(selectedCoinData.priceChangePercentageLastDay)}
+          />
         </div>
       )}
     </article>

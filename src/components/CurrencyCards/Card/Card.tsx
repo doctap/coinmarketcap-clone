@@ -2,9 +2,8 @@ import { COIN_ICON } from "@/components/CurrencyCards/data"
 import { CoinProps } from "@/entities/coins"
 import { ExtraProps } from "@/types"
 import clsx from "clsx"
-import { IoMdArrowDropdown } from "react-icons/io";
 import { CgDollar } from "react-icons/cg";
-import { Card, CardContent, CardDescription, CardFooter, CardParagraph } from "@/shared";
+import { Card, CardContent, CardDescription, CardFooter, CardParagraph, UpDownIndicator } from "@/shared";
 import { intFormatter } from "@/lib/utils";
 
 export function CurrencyCard({
@@ -36,12 +35,12 @@ export function CurrencyCard({
         </div>
       </CardContent>
 
-      <CardFooter className='self-end text-14 flex gap-3 text-nowrap'>
-        {priceChangePercentageLastDay >= 0
-          ? <IoMdArrowDropdown size={18} className='text-green-300 rotate-180' />
-          : <IoMdArrowDropdown size={18} className='text-red' />
-        }
-        {`${priceChangePercentageLastDay.toFixed(2)} %`}
+      <CardFooter>
+        <UpDownIndicator
+          value={`${priceChangePercentageLastDay.toFixed(2)} %`}
+          isUp={priceChangePercentageLastDay >= 0}
+          mode="tick"
+        />
       </CardFooter>
     </Card>
   )

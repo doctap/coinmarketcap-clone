@@ -1,4 +1,4 @@
-import { CardList, CoinChartBox, GlobalMarketOverview, MarketHighlights } from "@/components"
+import { CardList, CoinChartBox, GlobalMarketOverview, MarketHighlights, TopCoinsTable } from "@/components"
 
 export default function Home() {
   return (
@@ -6,7 +6,8 @@ export default function Home() {
       <h1 className="sr-only">Crypto coin market</h1>
       <div>
         <CardList className='mb-24' />
-        <CoinChartBox />
+        <CoinChartBox className='mb-24' />
+        <TopCoinsTable />
       </div>
       <div>
         <GlobalMarketOverview className='h-fit mb-24' />

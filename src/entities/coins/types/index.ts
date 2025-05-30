@@ -40,6 +40,8 @@ export interface CoinProps {
   image: string;
   currentPrice: number;
   priceChangePercentageLastDay: number;
+  marketRank: number
+  totalVolume: number;
 }
 
 export type FetchCoinsQuery = {
