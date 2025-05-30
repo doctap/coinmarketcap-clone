@@ -1,12 +1,15 @@
 import { Search } from "lucide-react";
 import { Logo } from "@/shared";
-import {ThemeToggle} from "@/components";
+import {Nav, ThemeToggle} from "@/components";
 import { Input } from "@/shared";
 
 export function Header() {
   return (
-    <nav className="flex justify-between px-36 pt-20">
+    <header className="flex justify-between px-36 pt-20">
       <Logo />
+
+      <Nav />
+
       <div className="flex gap-24 items-center">
         <div className="relative h-fit">
           <Search className="h-20 w-20 top-7 left-5 absolute text-purple-light" />
@@ -15,6 +18,6 @@ export function Header() {
 
         <ThemeToggle />
       </div>
-    </nav>
+    </header>
   )
 }
