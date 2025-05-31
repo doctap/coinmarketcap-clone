@@ -1,10 +1,16 @@
 import { COIN_ICON } from "@/components/CurrencyCards/data"
-import { CoinProps } from "@/entities/coins"
 import { ExtraProps } from "@/types"
 import clsx from "clsx"
 import { CgDollar } from "react-icons/cg";
 import { Card, CardContent, CardDescription, CardFooter, CardParagraph, UpDownIndicator } from "@/shared";
 import { intFormatter } from "@/lib/utils";
+
+export interface CoinCardProps {
+  id: string;
+  name: string;
+  currentPrice: number;
+  priceChangePercentageLastDay: number;
+}
 
 export function CurrencyCard({
   id,
@@ -12,7 +18,7 @@ export function CurrencyCard({
   currentPrice,
   priceChangePercentageLastDay,
   className
-}: CoinProps & ExtraProps) {
+}: CoinCardProps & ExtraProps) {
   return (
     <Card className={clsx('flex px-16 py-12 gap-8 justify-between bg-card rounded-md', className)}>
       <CardContent className='flex gap-24 items-center p-0'>

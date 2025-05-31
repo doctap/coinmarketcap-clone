@@ -4,8 +4,8 @@ import { PropsWithChildren, ButtonHTMLAttributes } from "react";
 type NativeProps = PropsWithChildren & ButtonHTMLAttributes<HTMLButtonElement>
 
 interface ButtonProps extends NativeProps {
-  variant: 'outline'
-  size: 'icon'
+  variant?: 'outline'
+  size?: 'icon'
 }
 
 export function Button({ children, className, ...otherProps }: ButtonProps) {

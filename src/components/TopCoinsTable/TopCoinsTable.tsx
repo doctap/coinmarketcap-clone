@@ -2,14 +2,36 @@
 
 import { useCoinsQuery } from "@/hooks";
 import { intFormatter } from "@/lib/utils";
-import { Card, CardContent, CardHeader, CardTitle, Skeleton, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, UpDownIndicator } from "@/shared";
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Skeleton, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, UpDownIndicator } from "@/shared";
 import { ExtraProps } from "@/types";
 import NextImage from "next/image";
 import { CgDollar } from "react-icons/cg";
 import { Cases } from "../Cases/Cases";
 
+export interface TopCoinTableProps {
+  id: string;
+  name: string;
+  image: string;
+  currentPrice: number;
+  priceChangePercentageLastDay: number;
+  marketRank: number;
+  totalVolume: number;
+}
+
 export const TopCoinsTable = ({ className }: ExtraProps) => {
-  const { data, isLoading, isError, error } = useCoinsQuery({ limit: 5, vsCurrency: 'usd' })
+  const { data, isLoading, isError, error } = useCoinsQuery<TopCoinTableProps>({
+    limit: 5,
+    vsCurrency: 'usd',
+    mapper: (coin) => ({
+      id: coin.id,
+      name: coin.name,
+      image: coin.image,
+      currentPrice: coin.current_price,
+      priceChangePercentageLastDay: coin.market_cap_change_percentage_24h,
+      marketRank: coin.market_cap_rank,
+      totalVolume: coin.total_volume,
+    }),
+  })
 
   const skeletons = (
     <div className='flex flex-col gap-10'>
@@ -21,8 +43,12 @@ export const TopCoinsTable = ({ className }: ExtraProps) => {
 
   return (
     <Card className={className}>
-      <CardHeader className='mb-24'>
-        <CardTitle>Market value</CardTitle>
+      <CardHeader className='mb-16 flex-row items-center justify-between px-5'>
+        <div>
+          <CardTitle className='mb-5'>Market value</CardTitle>
+          <CardDescription>5 Top cryptocurrencies</CardDescription>
+        </div>
+        <Button className='text-card-accent-foreground font-semibold'>See all</Button>
       </CardHeader>
 
       <Cases

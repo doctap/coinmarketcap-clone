@@ -1,14 +1,19 @@
-import { CoinProps } from "@/entities/coins"
 import NextImage from "next/image"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "../Command/Command"
 import { memo, useCallback } from "react"
 
-export const CoinChartSearch = memo(function CoinChartSearch({
+export interface CoinSearchSelectItem {
+  id: string;
+  name: string;
+  image: string;
+}
+
+export const CoinSearchSelect = memo(function CoinSearchSelect({
   coins,
   onChange,
   value
 }: {
-  coins?: CoinProps[],
+  coins?: CoinSearchSelectItem[],
   onChange: (value: string) => void,
   value: string
 }) {
@@ -22,7 +27,7 @@ export const CoinChartSearch = memo(function CoinChartSearch({
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Coins">
 
-          {coins?.map(({ id, name, image, symbol }) => (
+          {coins?.map(({ id, name, image }) => (
             <CommandItem
               key={id}
               value={id}
@@ -32,7 +37,7 @@ export const CoinChartSearch = memo(function CoinChartSearch({
                 src={image}
                 width={30}
                 height={30}
-                alt={symbol}
+                alt={name}
               />
               {name}
             </CommandItem>
