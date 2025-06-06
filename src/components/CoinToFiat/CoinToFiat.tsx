@@ -5,7 +5,7 @@ import { Skeleton } from "@/shared"
 import { RiExpandUpDownLine } from "react-icons/ri"
 import { Cases, CoinSearchSelect, CoinSearchSelectItem } from "@/components"
 import { CgDollar } from "react-icons/cg"
-import { memo, useCallback, useState } from "react"
+import { memo, useCallback, useEffect, useState } from "react"
 import { intFormatter } from "@/lib/utils"
 import { useCoinsQuery } from "@/hooks"
 
@@ -18,20 +18,11 @@ export const CoinToFiat = memo(function CoinToFiat({
   selectedCoinId: string,
   onChange: (value: string) => void
 }) {
-  const { data, isLoading, isError, error } = useCoinsQuery<CoinToFiatItem>({
-    limit: 50,
-    vsCurrency: 'usd',
-    mapper: coin => ({
-      id: coin.id,
-      name: coin.name,
-      image: coin.image,
-      currentPrice: coin.current_price,
-      priceChangePercentageLastDay: coin.market_cap_change_percentage_24h,
-    }),
-  })
+  const { data, isLoading, isError, error } = useCoinsQuery()
+  const [items, setItems] = useState<CoinToFiatItem[]>([]);
 
   const [isOpen, setIsOpen] = useState(false)
-  const selectedCoinData = data?.find(({ id }) => id === selectedCoinId)
+  const selectedCoinData = items?.find(({ id }) => id === selectedCoinId)
 
   const handleCoinSelect = useCallback((value: string) => {
     onChange(value)
@@ -42,6 +33,18 @@ export const CoinToFiat = memo(function CoinToFiat({
     <Skeleton className='mb-16 w-200 h-42 rounded-sm' />
     <Skeleton className='w-200 h-42 rounded-sm' />
   </>
+
+  useEffect(() => {
+    if (data) {
+      setItems(data.slice(0, 100).map(coin => ({
+        id: coin.id,
+        name: coin.name,
+        image: coin.image,
+        currentPrice: coin.current_price,
+        priceChangePercentageLastDay: coin.market_cap_change_percentage_24h,
+      })))
+    }
+  }, [data]);
 
   return (
     <article>
@@ -60,7 +63,7 @@ export const CoinToFiat = memo(function CoinToFiat({
             <CoinSearchSelect
               value={selectedCoinId}
               onChange={handleCoinSelect}
-              coins={data}
+              coins={items}
             />
           </PopoverContent>
         </Popover>

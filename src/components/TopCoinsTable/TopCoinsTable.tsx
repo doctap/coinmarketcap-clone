@@ -7,6 +7,7 @@ import { ExtraProps } from "@/types";
 import NextImage from "next/image";
 import { CgDollar } from "react-icons/cg";
 import { Cases } from "../Cases/Cases";
+import { useEffect, useState } from "react";
 
 export interface TopCoinTableProps {
   id: string;
@@ -19,19 +20,8 @@ export interface TopCoinTableProps {
 }
 
 export const TopCoinsTable = ({ className }: ExtraProps) => {
-  const { data, isLoading, isError, error } = useCoinsQuery<TopCoinTableProps>({
-    limit: 5,
-    vsCurrency: 'usd',
-    mapper: (coin) => ({
-      id: coin.id,
-      name: coin.name,
-      image: coin.image,
-      currentPrice: coin.current_price,
-      priceChangePercentageLastDay: coin.market_cap_change_percentage_24h,
-      marketRank: coin.market_cap_rank,
-      totalVolume: coin.total_volume,
-    }),
-  })
+  const { data, isLoading, isError, error } = useCoinsQuery();
+  const [items, setItems] = useState<TopCoinTableProps[]>([]);
 
   const skeletons = (
     <div className='flex flex-col gap-10'>
@@ -40,6 +30,20 @@ export const TopCoinsTable = ({ className }: ExtraProps) => {
       ))}
     </div>
   )
+
+  useEffect(() => {
+    if (data) {
+      setItems(data.slice(0, 5).map(coin => ({
+        id: coin.id,
+        name: coin.name,
+        image: coin.image,
+        currentPrice: coin.current_price,
+        priceChangePercentageLastDay: coin.market_cap_change_percentage_24h,
+        marketRank: coin.market_cap_rank,
+        totalVolume: coin.total_volume,
+      })))
+    }
+  }, [data]);
 
   return (
     <Card className={className}>
@@ -69,7 +73,7 @@ export const TopCoinsTable = ({ className }: ExtraProps) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {data?.map(coin => (
+              {items?.map(coin => (
                 <TableRow key={coin.id}>
                   <TableCell className="font-medium py-10 pl-10">
                     <NextImage

@@ -1,11 +1,8 @@
-import { Coin, FetchCoinsQuery, CoinPrices, FetchCoinPricesQuery } from "../types"
+import { Coin, /*FetchCoinsQuery,*/ CoinPrices, FetchCoinPricesQuery } from "../types"
 
-export const fetchCoins = async ({ 
-  vsCurrency,
-  limit
-}: Pick<FetchCoinsQuery, 'vsCurrency' | 'limit'>): Promise<Coin[]> => {
+export const fetchCoins = async (): Promise<Coin[]> => {
   const response = await fetch(
-    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${vsCurrency}&per_page=${limit}`
+    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=100`
   )
 
   if (!response.ok) {

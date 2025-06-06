@@ -44,12 +44,6 @@ export interface CoinProps {
   totalVolume: number;
 }
 
-export type FetchCoinsQuery<T = unknown> = {
-  limit: number;
-  vsCurrency: FiatCurrency;
-  mapper: (data: Coin) => T;
-};
-
 export type CoinPrices = {
   prices: number[][];
   market_caps: number[][];
