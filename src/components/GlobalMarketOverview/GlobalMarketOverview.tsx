@@ -4,45 +4,49 @@ import { useGlobalMarketQuery } from "@/hooks";
 import { Card, CardContent, CardTitle, Skeleton } from "@/shared";
 import { ExtraProps } from "@/types";
 import { CgDollar } from "react-icons/cg";
+import { Cases } from "../Cases/Cases";
 
 export const GlobalMarketOverview = ({ className }: ExtraProps) => {
-  const { data, isLoading } = useGlobalMarketQuery()
+  const { data, isLoading, error, isError } = useGlobalMarketQuery()
+
+  const skeletons = <>
+    <Skeleton className='w-250 h-166' />
+    <Skeleton className='w-250 h-166' />
+    <Skeleton className='w-250 h-124' />
+    <Skeleton className='w-250 h-124' />
+  </>
 
   return (
     <Card className={className}>
       <CardTitle className='mb-24 text-center'>Market overview</CardTitle>
       <CardContent className='flex flex-wrap gap-24 justify-center'>
-        {!isLoading ? (
-          <>
-            <MiniCard
-              isCurrency
-              value={data?.totalMarketCap}
-              heading='Total market cap'
-              percentage={`${data?.marketCapChange.toFixed(2)} %`}
-            />
-            <MiniCard
-              isCurrency
-              value={data?.totalVolume}
-              heading='24h Volume'
-              percentage='-'
-            />
-            <MiniCard
-              value={data?.activeCryptos}
-              heading='Total cryptocurrencies'
-            />
-            <MiniCard
-              value={`${data?.bitcoinDominance.toFixed(1)}%`}
-              heading='Bitcoin dominance'
-            />
-          </>
-        ) : (
-          <>
-            <Skeleton className='w-250 h-166' />
-            <Skeleton className='w-250 h-166' />
-            <Skeleton className='w-250 h-124' />
-            <Skeleton className='w-250 h-124' />
-          </>
-        )}
+        <Cases
+          error={error}
+          isError={isError}
+          isLoading={isLoading}
+          skeletons={skeletons}
+        >
+          <MiniCard
+            isCurrency
+            value={data?.totalMarketCap}
+            heading='Total market cap'
+            percentage={`${data?.marketCapChange.toFixed(2)} %`}
+          />
+          <MiniCard
+            isCurrency
+            value={data?.totalVolume}
+            heading='24h Volume'
+            percentage='-'
+          />
+          <MiniCard
+            value={data?.activeCryptos}
+            heading='Total cryptocurrencies'
+          />
+          <MiniCard
+            value={`${data?.bitcoinDominance.toFixed(1)}%`}
+            heading='Bitcoin dominance'
+          />
+        </Cases>
       </CardContent>
     </Card>
   )
