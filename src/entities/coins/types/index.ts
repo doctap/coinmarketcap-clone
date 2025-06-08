@@ -33,17 +33,6 @@ export type Coin = {
   last_updated: string; // ISO date
 };
 
-export interface CoinProps {
-  id: string;
-  symbol: string;
-  name: string;
-  image: string;
-  currentPrice: number;
-  priceChangePercentageLastDay: number;
-  marketRank: number;
-  totalVolume: number;
-}
-
 export type CoinPrices = {
   prices: number[][];
   market_caps: number[][];

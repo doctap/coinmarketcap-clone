@@ -8,6 +8,7 @@ export const UpDownIndicator = ({
   isUp,
   value,
   mode = "default",
+  className
 }: ExtraProps & {
   isUp: boolean,
   value: string,
@@ -16,7 +17,7 @@ export const UpDownIndicator = ({
 
   if (mode === "tick") {
     return (
-      <div className={'self-end text-14 flex gap-3 text-nowrap'}>
+      <div className={clsx('self-end text-14 flex gap-3 text-nowrap', className)}>
         {isUp
           ? <IoMdArrowDropdown size={18} className='text-green-300 rotate-180' />
           : <IoMdArrowDropdown size={18} className='text-red' />
@@ -27,7 +28,7 @@ export const UpDownIndicator = ({
   }
 
   return (
-    <div className={clsx('mt-auto pb-3', isUp ? 'text-red' : 'text-green-300')}>
+    <div className={clsx('mt-auto pb-3', isUp ? 'text-red' : 'text-green-300', className)}>
       {value}
     </div>
   )

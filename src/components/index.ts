@@ -20,3 +20,4 @@ export * from './MarketHighlights/MarketHighlights'
 
 export * from './TopCoinsTable/TopCoinsTable'
 export * from './Cases/Cases'
+export * from './CoinsTableDialog/CoinsTableDialog'

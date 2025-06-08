@@ -8,7 +8,6 @@ import { CoinToFiat } from "@/components"
 import { CoinChart } from "@/components"
 import { ExtraProps, Periods } from "@/types"
 
-
 export const CoinChartBox = ({ className }: ExtraProps) => {
   const [selectedCoinId, setSelectedCoin] = useState('bitcoin')
   const [selectedPeriod, setSelectedPeriod] = useState<Periods>(7)

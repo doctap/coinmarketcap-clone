@@ -2,12 +2,13 @@
 
 import { useCoinsQuery } from "@/hooks";
 import { intFormatter } from "@/lib/utils";
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, Skeleton, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, UpDownIndicator } from "@/shared";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Skeleton, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, UpDownIndicator } from "@/shared";
 import { ExtraProps } from "@/types";
 import NextImage from "next/image";
 import { CgDollar } from "react-icons/cg";
 import { Cases } from "../Cases/Cases";
 import { useEffect, useState } from "react";
+import { CoinsTableDialog, CoinTableProps } from "../CoinsTableDialog/CoinsTableDialog";
 
 export interface TopCoinTableProps {
   id: string;
@@ -21,7 +22,8 @@ export interface TopCoinTableProps {
 
 export const TopCoinsTable = ({ className }: ExtraProps) => {
   const { data, isLoading, isError, error } = useCoinsQuery();
-  const [items, setItems] = useState<TopCoinTableProps[]>([]);
+  const [tableItems, setTableItems] = useState<TopCoinTableProps[]>([]);
+  const [dialogItems, setDialogItems] = useState<CoinTableProps[]>([]);
 
   const skeletons = (
     <div className='flex flex-col gap-10'>
@@ -33,7 +35,7 @@ export const TopCoinsTable = ({ className }: ExtraProps) => {
 
   useEffect(() => {
     if (data) {
-      setItems(data.slice(0, 5).map(coin => ({
+      setTableItems(data.slice(0, 5).map(coin => ({
         id: coin.id,
         name: coin.name,
         image: coin.image,
@@ -41,6 +43,17 @@ export const TopCoinsTable = ({ className }: ExtraProps) => {
         priceChangePercentageLastDay: coin.market_cap_change_percentage_24h,
         marketRank: coin.market_cap_rank,
         totalVolume: coin.total_volume,
+      })))
+      setDialogItems(data.map(coin => ({
+        name: coin.name,
+        image: coin.image,
+        currentPrice: coin.current_price,
+        totalVolume: coin.total_volume,
+        marketRank: coin.market_cap_rank,
+        marketCap: coin.market_cap,
+        priceChangePercentageLastDay: coin.price_change_percentage_24h,
+        highIn24: coin.high_24h,
+        lowIn24: coin.low_24h,
       })))
     }
   }, [data]);
@@ -52,7 +65,7 @@ export const TopCoinsTable = ({ className }: ExtraProps) => {
           <CardTitle className='mb-5'>Market value</CardTitle>
           <CardDescription>5 Top cryptocurrencies</CardDescription>
         </div>
-        <Button className='text-card-accent-foreground font-semibold'>See all</Button>
+        <CoinsTableDialog data={dialogItems} triggerText="See all" />
       </CardHeader>
 
       <Cases
@@ -73,7 +86,7 @@ export const TopCoinsTable = ({ className }: ExtraProps) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {items?.map(coin => (
+              {tableItems?.map(coin => (
                 <TableRow key={coin.id}>
                   <TableCell className="font-medium py-10 pl-10">
                     <NextImage
