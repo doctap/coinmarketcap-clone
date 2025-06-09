@@ -21,27 +21,30 @@ export const CoinSearchSelect = memo(function CoinSearchSelect({
 
   return (
     <Command value={value} className="p-10">
-      <CommandInput className='py-20 px-10 text-20' placeholder="Type a coin for search..." />
+      <CommandInput className='py-20 pl-5 text-20' placeholder="Type a coin..." />
       <CommandList>
 
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Coins">
 
-          {coins?.map(({ id, name, image }) => (
+          <div className='flex flex-col space-y-10 mt-5'>
+            {coins?.map(({ id, name, image }) => (
             <CommandItem
               key={id}
               value={id}
               onSelect={handleItemSelect}
+              className='gap-10 p-5'
             >
               <NextImage
                 src={image}
-                width={30}
-                height={30}
+                width={20}
+                height={20}
                 alt={name}
               />
               {name}
             </CommandItem>
           ))}
+          </div>
         </CommandGroup>
 
       </CommandList>

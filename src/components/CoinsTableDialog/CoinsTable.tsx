@@ -37,7 +37,7 @@ export function CoinsTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
-  const [pagination, setPagination] = useState<PaginationState>({pageIndex: 0, pageSize: 8})
+  const [pagination, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 8 })
 
   const table = useReactTable({
     data,
@@ -58,6 +58,7 @@ export function CoinsTable<TData, TValue>({
 
   return (
     <div className="rounded-md">
+      <hr className='my-16' />
       <div className="flex items-center justify-between mb-16">
         <Input
           placeholder="Filter cryptocurrency..."
@@ -120,7 +121,7 @@ export function CoinsTable<TData, TValue>({
           )}
         </TableBody>
       </Table>
-
+      <hr className='mb-24' />
       <PaginationPanel pagination={pagination} table={table} />
     </div>
   )

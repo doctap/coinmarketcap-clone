@@ -112,6 +112,7 @@ export const TopCoinsTable = ({ className }: ExtraProps) => {
                   </TableCell>
                   <TableCell className='py-10'>
                     <UpDownIndicator
+                      className='text-right pr-[60%]'
                       isUp={coin.priceChangePercentageLastDay < 0}
                       value={`${coin.priceChangePercentageLastDay.toFixed(2)} %`}
                     />

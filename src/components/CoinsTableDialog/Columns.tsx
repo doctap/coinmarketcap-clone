@@ -32,7 +32,7 @@ export const columns: ColumnDef<CoinTableProps>[] = [
     header: ({ column }) => (
       <SortBtn
         value={column.getIsSorted()}
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={() => column.toggleSorting()}
       >
         Name
       </SortBtn>
@@ -67,7 +67,7 @@ export const columns: ColumnDef<CoinTableProps>[] = [
     header: ({ column }) => (
       <SortBtn
         value={column.getIsSorted()}
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={() => column.toggleSorting()}
       >
         Price
       </SortBtn>
@@ -90,7 +90,7 @@ export const columns: ColumnDef<CoinTableProps>[] = [
     header: ({ column }) => (
       <SortBtn
         value={column.getIsSorted()}
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={() => column.toggleSorting()}
       >
         Volume
       </SortBtn>
@@ -114,14 +114,14 @@ export const columns: ColumnDef<CoinTableProps>[] = [
     header: ({ column }) => (
       <SortBtn
         value={column.getIsSorted()}
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={() => column.toggleSorting()}
       >
         Rank
       </SortBtn>
     ),
     cell: ({ row: { original } }) => {
       return (
-        <div className="flex items-center font-geist-mono">
+        <div className="font-geist-mono pl-20">
           {original.marketRank}
         </div>
       )
@@ -132,7 +132,7 @@ export const columns: ColumnDef<CoinTableProps>[] = [
     header: ({ column }) => (
       <SortBtn
         value={column.getIsSorted()}
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={() => column.toggleSorting()}
       >
         Cap
       </SortBtn>
@@ -156,7 +156,7 @@ export const columns: ColumnDef<CoinTableProps>[] = [
     header: ({ column }) => (
       <SortBtn
         value={column.getIsSorted()}
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={() => column.toggleSorting()}
       >
         Change
       </SortBtn>
@@ -164,9 +164,9 @@ export const columns: ColumnDef<CoinTableProps>[] = [
     cell: ({ row: { original } }) => {
       return (
         <UpDownIndicator
-          className='font-geist-mono'
+          className='font-geist-mono text-right pr-15'
           value={`${original.priceChangePercentageLastDay.toFixed(2)} %`}
-          isUp={original.priceChangePercentageLastDay >= 0}
+          isUp={original.priceChangePercentageLastDay < 0}
         />
       )
     }
@@ -176,7 +176,7 @@ export const columns: ColumnDef<CoinTableProps>[] = [
     header: ({ column }) => (
       <SortBtn
         value={column.getIsSorted()}
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={() => column.toggleSorting()}
       >
         Highest price
       </SortBtn>
@@ -199,7 +199,7 @@ export const columns: ColumnDef<CoinTableProps>[] = [
     header: ({ column }) => (
       <SortBtn
         value={column.getIsSorted()}
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        onClick={() => column.toggleSorting()}
       >
         Lowest price
       </SortBtn>

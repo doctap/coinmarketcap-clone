@@ -19,28 +19,17 @@ export function PaginationPanel<TData>({
 }: { table: Table<TData>, pagination: PaginationState }) {
   return (
     <div className='flex items-center justify-between mt-24 gap-16'>
-      <div className='flex space-x-7'>
-        <Button
-          variant='outline'
-          onClick={() => table.resetSorting()}
-          size='lg'
-          className='font-semibold'
-        >
-          Reset sorting
-        </Button>
+      <Select onValueChange={(pageSize) => table.setPageSize(Number(pageSize))}>
+        <SelectTrigger className="w-50 py-15 pl-10">
+          <SelectValue placeholder={pagination.pageSize} />
+        </SelectTrigger>
+        <SelectContent className='min-w-fit'>
+          {pageSizes.map(it => <SelectItem className='pl-10' key={it} value={it}>{it}</SelectItem>)}
+        </SelectContent>
+      </Select>
 
-        <Select onValueChange={(pageSize) => table.setPageSize(Number(pageSize))}>
-          <SelectTrigger className="w-50 py-15 pl-10">
-            <SelectValue placeholder={pagination.pageSize} />
-          </SelectTrigger>
-          <SelectContent className='min-w-fit'>
-            {pageSizes.map(it => <SelectItem className='pl-10' key={it} value={it}>{it}</SelectItem>)}
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div className="flex items-center space-x-7">
-        <div className='text-14'>Page {pagination.pageIndex + 1} of {table.getPageCount()}</div>
+      <div className="flex items-center space-x-10">
+        <div className='text-14 mr-24'>Page {pagination.pageIndex + 1} of {table.getPageCount()}</div>
         <Button
           variant="outline"
           size="lg"

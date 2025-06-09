@@ -25,7 +25,7 @@ export function CoinsTableDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger disabled={!data} className='text-card-accent-foreground font-semibold'>
+      <DialogTrigger disabled={!data} className='text-primary font-semibold'>
         {triggerText}
       </DialogTrigger>
       <DialogContent className='p-24 min-w-fit'>
@@ -33,7 +33,6 @@ export function CoinsTableDialog({
           <DialogTitle>All Cryptocurrencies</DialogTitle>
           <DialogDescription>Browse a complete list of cryptocurrencies along with their current prices, market caps, and other important information.</DialogDescription>
         </DialogHeader>
-        <hr className='my-16'/>
         <CoinsTable columns={columns} data={data} />
       </DialogContent>
     </Dialog>
